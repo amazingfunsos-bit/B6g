@@ -1,0 +1,204 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Game Throne (Copy)</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M16 42V18Q16 8 32 8T48 18V42Z' fill='%23F4B92F' stroke='%23B9861A' stroke-width='2'/%3E%3Cpath d='M20 41V20Q20 12 32 12T44 20V41Z' fill='%23E8495E'/%3E%3Ccircle cx='27' cy='25' r='2.4' fill='%2316221f'/%3E%3Ccircle cx='37' cy='25' r='2.4' fill='%2316221f'/%3E%3Cpath d='M28 31q4 3 8 0' stroke='%2316221f' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3Crect x='8' y='38' width='48' height='11' rx='5.5' fill='%23E8495E' stroke='%23B33447' stroke-width='2'/%3E%3Crect x='13' y='48' width='38' height='7' rx='2' fill='%23F4B92F'/%3E%3Crect x='15' y='54' width='6' height='6' rx='2' fill='%23B9861A'/%3E%3Crect x='43' y='54' width='6' height='6' rx='2' fill='%23B9861A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Rubik:wght@400;500;600&display=swap">
+<style>
+/* Layout: teal velvet banner holding the throne logo, then a grid of big game tiles (the "throne room"). */
+:root{
+  --bg:#EEF4F2; --card:#FFFFFF; --ink:#13231F; --muted:#56706A; --line:#C9D9D4;
+  --velvet:#0F5257; --velvet-ink:#F6FBF9; --gold:#F4B92F; --gold-dk:#B9861A; --ruby:#E8495E; --leaf:#1FA855;
+  --f-d:"Bagel Fat One","Arial Rounded MT Bold",system-ui,sans-serif;
+  --f-b:"Rubik",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1513; --card:#13211E; --ink:#E6F1EE; --muted:#93ADA6; --line:#26403A;
+  --velvet:#0C3F43; --velvet-ink:#F6FBF9; --gold:#F4B92F; --gold-dk:#B9861A; --ruby:#EE5D70; --leaf:#22B25C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1513; --card:#13211E; --ink:#E6F1EE; --muted:#93ADA6; --line:#26403A;
+  --velvet:#0C3F43; --velvet-ink:#F6FBF9; --gold:#F4B92F; --gold-dk:#B9861A; --ruby:#EE5D70; --leaf:#22B25C; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-b);font-size:15px;line-height:1.5}
+.band{background:var(--velvet);color:var(--velvet-ink);padding-block:22px 26px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  background-image:radial-gradient(circle at 12% 20%,rgba(244,185,47,.18) 0 2px,transparent 3px),radial-gradient(circle at 70% 70%,rgba(244,185,47,.14) 0 2px,transparent 3px);background-size:46px 46px,58px 58px}
+.band-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.logo{width:clamp(104px,26vw,140px);height:auto;flex:none;filter:drop-shadow(0 8px 14px rgba(0,0,0,.28))}
+.logo .wig{transform-origin:64px 22px;animation:wig 3s ease-in-out infinite}
+.logo .blink{transform-origin:64px 56px;animation:blink 4.5s infinite}
+@keyframes wig{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-3px)}}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.brand{min-width:0}
+.brand h1{font-family:var(--f-d);font-weight:400;font-size:clamp(40px,10vw,68px);line-height:.95;margin:0;letter-spacing:.005em;text-wrap:balance}
+.brand h1 span{color:var(--gold)}
+.brand p{margin:6px 0 0;font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.share-hub{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:600 14px var(--f-b);border:1.5px solid var(--line);background:var(--card);color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px}
+.btn:hover{border-color:var(--ink)}
+.btn.wa{background:var(--leaf);border-color:var(--leaf);color:#fff}
+.band .btn{background:transparent;color:var(--velvet-ink);border-color:rgba(246,251,249,.4)}
+.band .btn:hover{border-color:var(--velvet-ink)}
+.band .btn.wa{background:var(--leaf);border-color:var(--leaf)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+main{max-width:1080px;margin:0 auto;padding-block:22px 36px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:14px}
+main h2{font-family:var(--f-d);font-weight:400;font-size:26px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:14px}
+.game{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.play{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;color:var(--ink);border-radius:16px;padding:14px 8px 12px;background:var(--tint);transition:transform .15s}
+.play:hover{transform:translateY(-3px)}
+.play svg{width:96px;height:96px;border-radius:24px;box-shadow:0 8px 18px -6px rgba(0,0,0,.35)}
+.play b{font-family:var(--f-d);font-weight:400;font-size:21px;line-height:1.1;text-align:center;text-wrap:balance}
+.play .go{font:600 13px var(--f-b);letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--card);padding:6px 16px;border-radius:99px}
+.link{font-size:13px;color:var(--muted);text-align:center;margin:0;overflow-wrap:anywhere}
+.row{display:flex;gap:8px}
+.row .btn{flex:1 1 0;padding:8px 10px;font-size:13px;min-height:40px}
+.soon{border-style:dashed;justify-content:center;align-items:center;text-align:center;color:var(--muted);min-height:200px}
+.soon b{font-family:var(--f-d);font-weight:400;font-size:20px;color:var(--ink)}
+.btn.demo{background:var(--gold);border-color:var(--gold-dk);color:#13231F;width:100%}
+.vmodal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.82);display:flex;align-items:center;justify-content:center;padding:16px}
+.vmodal[hidden]{display:none}
+.vbox{width:min(960px,100%);display:flex;flex-direction:column;gap:10px}
+.vbox video{width:100%;border-radius:14px;background:#000;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.vbar{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.toast{min-height:20px;margin:0;font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.logo .wig,.logo .blink{animation:none}.play{transition:none}}
+</style>
+
+<header class="band">
+  <div class="band-in">
+    <svg class="logo" viewBox="0 0 128 128" role="img" aria-label="Game Throne logo: a smiling little golden throne with a red velvet seat and a tiny crown on top">
+      <ellipse cx="64" cy="121" rx="44" ry="5" fill="#000" opacity=".2"/>
+      <!-- legs -->
+      <rect x="30" y="104" width="12" height="13" rx="4" fill="#B9861A"/>
+      <rect x="86" y="104" width="12" height="13" rx="4" fill="#B9861A"/>
+      <!-- backrest -->
+      <path d="M30 84V42Q30 20 64 20T98 42V84Z" fill="#F4B92F" stroke="#B9861A" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M38 82V44Q38 28 64 28T90 44V82Z" fill="#E8495E"/>
+      <path d="M44 40Q50 32 60 31" stroke="#F58B9A" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- face -->
+      <g class="blink"><ellipse cx="54" cy="54" rx="4.6" ry="5.6" fill="#16221F"/><ellipse cx="74" cy="54" rx="4.6" ry="5.6" fill="#16221F"/>
+        <circle cx="55.8" cy="51.8" r="1.7" fill="#fff"/><circle cx="75.8" cy="51.8" r="1.7" fill="#fff"/></g>
+      <ellipse cx="46" cy="63" rx="5" ry="3" fill="#FFB3BE" opacity=".8"/><ellipse cx="82" cy="63" rx="5" ry="3" fill="#FFB3BE" opacity=".8"/>
+      <path d="M57 63q7 7 14 0" stroke="#16221F" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+      <!-- armrests -->
+      <rect x="18" y="70" width="12" height="30" rx="5" fill="#F4B92F" stroke="#B9861A" stroke-width="2.5"/>
+      <rect x="98" y="70" width="12" height="30" rx="5" fill="#F4B92F" stroke="#B9861A" stroke-width="2.5"/>
+      <rect x="12" y="62" width="24" height="12" rx="6" fill="#F4B92F" stroke="#B9861A" stroke-width="2.5"/>
+      <rect x="92" y="62" width="24" height="12" rx="6" fill="#F4B92F" stroke="#B9861A" stroke-width="2.5"/>
+      <circle cx="14" cy="68" r="4" fill="#4FC3E8"/><circle cx="114" cy="68" r="4" fill="#6CC743"/>
+      <!-- cushion -->
+      <rect x="24" y="78" width="80" height="20" rx="10" fill="#E8495E" stroke="#B33447" stroke-width="2.5"/>
+      <path d="M32 83Q64 78 96 83" stroke="#F58B9A" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="44" cy="90" r="2" fill="#B33447"/><circle cx="64" cy="91" r="2" fill="#B33447"/><circle cx="84" cy="90" r="2" fill="#B33447"/>
+      <!-- base -->
+      <rect x="26" y="96" width="76" height="11" rx="4" fill="#F4B92F" stroke="#B9861A" stroke-width="2.5"/>
+      <circle cx="64" cy="101.5" r="3" fill="#E8495E"/>
+      <!-- tiny crown -->
+      <g class="wig">
+        <path d="M49 24 46 7l9 7 9-11 9 11 9-7-3 17z" fill="#F4B92F" stroke="#B9861A" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="64" cy="17" r="2.6" fill="#E8495E"/><circle cx="54" cy="19" r="1.8" fill="#4FC3E8"/><circle cx="74" cy="19" r="1.8" fill="#6CC743"/>
+      </g>
+      <!-- sparkles -->
+      <path d="M108 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#FFE08A"/>
+      <path d="M18 34l1.4 3.6 3.6 1.4-3.6 1.4L18 44l-1.4-3.6L13 39l3.6-1.4z" fill="#FFE08A"/>
+    </svg>
+    <div class="brand">
+      <h1>Game <span>Throne</span></h1>
+      <p>For all ages</p>
+    </div>
+    <div class="share-hub">
+      <a class="btn wa" id="hubWa" target="_blank" rel="noopener">Share on WhatsApp</a>
+      <button class="btn" id="hubCopy" type="button">Copy link</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h2>Pick a game</h2>
+  <div class="grid" id="grid"></div>
+  <p class="toast" id="toast" role="status"></p>
+  <div class="vmodal" id="vmodal" hidden><div class="vbox"><video id="vid" controls playsinline preload="none" poster="demo-poster.jpg" src="demo.mp4"></video><div class="vbar"><a class="btn wa" href="https://is.gd/chanukapartygames" target="_blank" rel="noopener">Book your party: $29.99</a><button class="btn" type="button" id="vclose">Close</button></div></div></div>
+</main>
+
+<script>
+(function(){
+const HUB_LINK = 'https://is.gd/gamethronegames';
+const GAMES = [
+  {name:'Chanuka Party Games: Book Your Party', slug:'chanukapartygames', demo:true, tint:'#F6E7BF', icon:'<rect width="48" height="48" rx="12" fill="#0f1a3d"/><rect x="8" y="36" width="32" height="4" rx="2" fill="#E8B84A"/><rect x="22.5" y="24" width="3" height="12" fill="#E8B84A"/><path d="M10 24q0 8 14 8t14-8" stroke="#E8B84A" stroke-width="2.2" fill="none"/><path d="M16 24q0 5 8 5t8-5" stroke="#E8B84A" stroke-width="2.2" fill="none"/><g fill="#fff"><rect x="9" y="18" width="2" height="6"/><rect x="15" y="18" width="2" height="6"/><rect x="31" y="18" width="2" height="6"/><rect x="37" y="18" width="2" height="6"/><rect x="23" y="14" width="2" height="10"/></g><g fill="#FFB627"><ellipse cx="10" cy="15.5" rx="1.6" ry="2.6"/><ellipse cx="16" cy="15.5" rx="1.6" ry="2.6"/><ellipse cx="32" cy="15.5" rx="1.6" ry="2.6"/><ellipse cx="38" cy="15.5" rx="1.6" ry="2.6"/><ellipse cx="24" cy="11.5" rx="1.6" ry="2.6"/></g>'},
+  {name:"What's In Your Cholent?", slug:'whatsinyourcholent', tint:'#DCE3F5', icon:'<rect width="48" height="48" rx="12" fill="#22356F"/><path d="M17 12c-2-3 2-4 0-7M24 12c-2-3 2-4 0-7M31 12c-2-3 2-4 0-7" stroke="#AFC0E6" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M8 20h32l-3 17q-10 4-26 0z" fill="#3A55A8"/><ellipse cx="24" cy="20" rx="16" ry="4" fill="#5E3418" stroke="#AFC0E6" stroke-width="2"/><path d="M8 23H5M40 23h3" stroke="#AFC0E6" stroke-width="3" stroke-linecap="round"/>'},
+  {name:'Sufganiyah Time', slug:'sufganiyahtime', tint:'#F8DCE0', icon:'<rect width="48" height="48" rx="12" fill="#C3122F"/><circle cx="24" cy="25" r="16" fill="#d48a3c"/><ellipse cx="24" cy="30" rx="16" ry="3" fill="#f3d79a"/><path d="M10 21a14 11 0 0 1 28 0c-4-2-8-3-14-3s-10 1-14 3z" fill="#fff" opacity=".85"/><circle cx="27" cy="9" r="3" fill="#7a0718"/><circle cx="19" cy="24" r="2.6" fill="#fff"/><circle cx="29" cy="24" r="2.6" fill="#fff"/><circle cx="19.4" cy="24.6" r="1.4" fill="#16110d"/><circle cx="29.4" cy="24.6" r="1.4" fill="#16110d"/><path d="M19 32q5 4 10 0" stroke="#5a1c1a" stroke-width="2" fill="none" stroke-linecap="round"/>'},
+  {name:'Yala Vyavo Shul', slug:'yalavyavo', tint:'#F2E7C6', icon:'<rect width="48" height="48" rx="12" fill="#141829"/><path d="M8 40V22L24 10l16 12v18z" fill="#d9b55b"/><path d="M19 40V31a5 5 0 0 1 10 0v9z" fill="#141829"/><path d="M24 15l3.5 6h-7zM24 23l-3.5-6h7z" fill="#141829"/>'},
+  {name:'Erase Amalek', slug:'eraseamalek', tint:'#E4DAF7', icon:'<rect width="48" height="48" rx="12" fill="#5A2FC2"/><path d="M24 7c3 6 9 2 10 7 5 1 7 6 3 9 4 3 2 9-3 9-1 5-7 7-10 3-3 4-9 2-10-3-5 0-7-6-3-9-4-3-2-8 3-9 1-5 7-1 10-7z" fill="#f1e5c8"/><text x="24" y="31" text-anchor="middle" font-family="Times New Roman,serif" font-weight="700" font-size="18" fill="#16120c">עמלק</text>'},
+  {name:'Beat the Marathon', slug:'beatthemarathon', tint:'#DCEAFB', icon:'<rect width="48" height="48" rx="12" fill="#2f7de1"/><rect y="17" width="48" height="20" fill="#41454e"/><rect y="26" width="48" height="2.5" fill="#9cc9f0"/><circle cx="24" cy="16" r="4.2" fill="#efc8a8"/><rect x="16" y="10.5" width="16" height="2.4" rx="1" fill="#000"/><rect x="19.5" y="4.5" width="9" height="7" rx="1.5" fill="#000"/><path d="M18.5 21h11l1.5 13h-14z" fill="#14141a"/><path d="M19 22l-5-7M29 22l5-7" stroke="#14141a" stroke-width="3" stroke-linecap="round"/><path d="M21 34v6M27 34v6" stroke="#14141a" stroke-width="3" stroke-linecap="round"/>'},
+  {name:'Dress Chaimo', slug:'dresschaimo', tint:'#D7EFFA', icon:'<rect width="48" height="48" rx="12" fill="#3fb7ee"/><path d="M0 38q24-8 48 0v10H0z" fill="#fff"/><ellipse cx="24" cy="28" rx="9" ry="10" fill="#e7a68c"/><path d="M15 29q1 13 9 14 8-1 9-14-4 4-9 4t-9-4z" fill="#c0602c"/><path d="M20 32q4 3 8 0" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/><ellipse cx="24" cy="19" rx="15" ry="3" fill="#111"/><path d="M15 19q0-9 9-9t9 9z" fill="#151515"/>'},
+  {name:"Mendy's Mess", slug:'mendysmess', tint:'#F5E2CF', icon:'<rect width="48" height="48" rx="12" fill="#C99159"/><circle cx="10" cy="11" r="2.6" fill="#E8B467" stroke="#5A3412"/><circle cx="38" cy="38" r="2.6" fill="#6CC743" stroke="#2E6A16"/><circle cx="37" cy="11" r="3" fill="none" stroke="#F7C55A" stroke-width="2"/><circle cx="11" cy="38" r="2.2" fill="#E8B467" stroke="#5A3412"/><circle cx="24" cy="25" r="13" fill="#2B57C9" stroke="#183784" stroke-width="2"/><circle cx="24" cy="25" r="8" fill="#fff" opacity=".25"/><path d="M14 18a13 13 0 0 1 20 0" stroke="#183784" stroke-width="3" fill="none"/><circle cx="24" cy="17" r="2" fill="#9CF0B2"/>'},
+  {name:'Build the Beis Hamikdash', slug:'buildthebeis', tint:'#F3EAD7', icon:'<rect width="48" height="48" rx="12" fill="#33479a"/><path d="M3 39h42v9H3z" fill="#d8c49c"/><path d="M9 23h30v16H9z" fill="#e9dab8"/><path d="M16 10h16v29H16z" fill="#f4e9cf"/><path d="M21 23h6v16h-6z" fill="#e3b23f"/><path d="M15 8h18v3H15z" fill="#f1c64f"/>'},
+  {name:'Boro Park Dash', slug:'boroparkdash', tint:'#D5ECDF', icon:'<rect width="48" height="48" rx="12" fill="#1d7a4c"/><rect x="18" width="12" height="48" fill="#2a2f42"/><rect y="18" width="48" height="12" fill="#2a2f42"/><circle cx="31" cy="24" r="2" fill="#ffe2a8"/><circle cx="38" cy="24" r="2" fill="#ffe2a8"/><path d="M24 24 L32 19 A9 9 0 1 0 32 29 Z" fill="#ffd23f" transform="translate(-3 0)"/><rect x="11" y="13" width="17" height="3" rx="1" fill="#111"/><rect x="14" y="7" width="11" height="7" rx="2" fill="#111"/><circle cx="23" cy="20" r="1.3" fill="#111"/><path d="M15 20q-2 3 0 5t0 5" stroke="#4a2f17" stroke-width="1.6" fill="none" stroke-linecap="round"/>'},
+  {name:'BMG Parking Lot', slug:'bmgparkinglot', tint:'#F7D9D6', icon:'<rect width="48" height="48" rx="12" fill="#3a3f4b"/><path d="M12 0v48M24 0v48M36 0v48" stroke="#e8e2c8" stroke-width="1.4" stroke-dasharray="5 4"/><rect x="5" y="7" width="7" height="13" rx="2" fill="#f1c232"/><rect x="38" y="26" width="7" height="16" rx="2" fill="#3fa7e0"/><rect x="26" y="5" width="7" height="12" rx="2" fill="#7bc96f"/><rect x="8" y="21" width="24" height="11" rx="3.5" fill="#C42E2E"/><rect x="21" y="23" width="6" height="7" rx="1.5" fill="#bfe3f5"/><circle cx="31" cy="23.5" r="1.3" fill="#ffe7a0"/><circle cx="31" cy="29.5" r="1.3" fill="#ffe7a0"/><path d="M38 14l6 0m-3-3 3 3-3 3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'},
+  {name:'Fill the Freezer', slug:'fillthefreezer', tint:'#D6E9F7', icon:'<rect width="48" height="48" rx="12" fill="#1f6fb2"/><rect x="6" y="6" width="36" height="36" rx="4" fill="#e9f5fd" stroke="#bcdcf2" stroke-width="1.5"/><rect x="9" y="30" width="30" height="9" rx="2" fill="#c9ccd3" stroke="#9aa0ab"/><rect x="9" y="20" width="12" height="9" rx="2" fill="#c9ccd3" stroke="#9aa0ab"/><rect x="22" y="20" width="8" height="9" rx="2" fill="#c9ccd3" stroke="#9aa0ab"/><rect x="10" y="9" width="28" height="7" rx="3.5" fill="#7a4a24"/><path d="M14 12.5h20" stroke="#c98a4b" stroke-width="1.5" stroke-dasharray="3 2"/><circle cx="35" cy="24.5" r="3.3" fill="#e2b06a" stroke="#a8742f"/><circle cx="35" cy="24.5" r="1" fill="#e9f5fd"/><path d="M38 3l1 2.4 2.4 1-2.4 1L38 10l-1-2.6-2.4-1 2.4-1z" fill="#fff"/>'},
+  {name:'Pedal Dash', slug:'pedaldashgame', tint:'#D9EFFB', icon:'<rect width="48" height="48" rx="12" fill="#4FB0EE"/><circle cx="39" cy="9" r="4" fill="#FFE066"/><path d="M0 38q12-6 24-2t24-3v15H0z" fill="#C9864A"/><path d="M0 37q12-6 24-2t24-3" stroke="#4CAF50" stroke-width="2.5" fill="none"/><circle cx="14" cy="32" r="5.5" fill="none" stroke="#2B1A0E" stroke-width="2"/><circle cx="33" cy="32" r="5.5" fill="none" stroke="#2B1A0E" stroke-width="2"/><path d="M14 32l8 0 11 0M14 32l7-10 9 0 3 10M21 22l1 10" stroke="#D62828" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M21 21l3-9" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M24 14l5 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="25" cy="9" r="3.6" fill="#F1C6A0"/><path d="M22 10q1 5 5 3" fill="#6B3E1F"/><ellipse cx="25" cy="6.3" rx="6" ry="1.4" fill="#111"/><rect x="21.5" y="1.5" width="7" height="5" rx="1.5" fill="#111"/>'},
+  {name:'Name the Next TYH Song', slug:'tyhsonggame', tint:'#FFE0EA', icon:'<rect width="48" height="48" rx="12" fill="#FF5D8F"/><circle cx="9" cy="10" r="2" fill="#FFD23F"/><circle cx="39" cy="38" r="2.4" fill="#FFD23F"/><path d="M38 7l1.2 3 3 1.2-3 1.2L38 15l-1.2-2.6-3-1.2 3-1.2z" fill="#fff"/><rect x="8" y="14" width="32" height="24" rx="5" fill="#fff"/><path d="M22 33V20l10-2v12" stroke="#2B2140" stroke-width="2.4" fill="none" stroke-linejoin="round"/><ellipse cx="19.5" cy="33" rx="3.4" ry="2.6" fill="#2B2140"/><ellipse cx="29.5" cy="30" rx="3.4" ry="2.6" fill="#2B2140"/><text x="24" y="11" text-anchor="middle" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-weight="700" font-size="8" fill="#fff">TYH</text>'},
+  {name:'Tissue Toss', slug:'tissuetossgame', tint:'#ECE6DA', icon:'<rect width="48" height="48" rx="12" fill="#d9cfbd"/><path d="M0 36h48v12H0z" fill="#bfb4a2"/><path d="M8 12q8-12 20-6" stroke="#fff" stroke-width="1.8" stroke-dasharray="2.5 2.5" fill="none" stroke-linecap="round"/><path d="M22 19h18l-2 22H24z" fill="#1d1f24"/><path d="M21 18h20v3H21z" fill="#3a3d45"/><path d="M24 19q7 4 14 0" stroke="#5a5e68" stroke-width="1.5" fill="none"/><circle cx="30" cy="8" r="5" fill="#fff" stroke="#b8b6b0" stroke-width="1.2"/><path d="M28 7q2 2 4 0M29 10q1.5-1 3 0" stroke="#c8c6c0" stroke-width="1" fill="none"/>'},
+  {name:'Space Laser', slug:'spacelasergame', tint:'#E2DDFA', icon:'<rect width="48" height="48" rx="12" fill="#0b0820"/><g fill="#fff"><circle cx="8" cy="9" r="1"/><circle cx="40" cy="14" r="1.2"/><circle cx="13" cy="30" r=".8"/><circle cx="37" cy="34" r="1"/></g><path d="M33 6l-3 7 2 2-2 3" fill="none"/><path d="M31 9a5 5 0 1 1 0 .01z" fill="#8b6a52" stroke="#c9a27a" stroke-width="1.2"/><rect x="23" y="14" width="2" height="9" rx="1" fill="#7ff"/><path d="M24 24l3.5 7 6 4.5-6 .5h-7l-6-.5 6-4.5z" fill="#e8f6ff"/><path d="M15 36l5-4.5 0 4.5zM33 36l-5-4.5 0 4.5z" fill="#a4f"/><ellipse cx="24" cy="30" rx="1.6" ry="3" fill="#3ff"/><path d="M21.5 36.5l2.5 6 2.5-6z" fill="#3ff"/>'},
+];
+
+/* sound */
+let ac=null;
+function tone(freqs,dur=.09,type='triangle',vol=.16){
+  try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();
+    let t=ac.currentTime;freqs.forEach(f=>{const o=ac.createOscillator(),g=ac.createGain();o.type=type;o.frequency.value=f;
+      g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.001,t+dur);o.connect(g).connect(ac.destination);o.start(t);o.stop(t+dur);t+=dur*.8;});
+  }catch(e){}
+}
+const sfx={play:()=>tone([523,659,784,1047],.1),share:()=>tone([660,880],.07),copy:()=>tone([880,1175],.07)};
+
+/* toast & copy */
+const toast=document.getElementById('toast');let tt;
+function say(m){toast.textContent=m;clearTimeout(tt);tt=setTimeout(()=>toast.textContent='',2600);}
+function copy(text){
+  sfx.copy();
+  const done=()=>say('Link copied: '+text);
+  try{navigator.clipboard.writeText(text).then(done,fallback);}catch(e){fallback();}
+  function fallback(){const i=document.createElement('input');i.value=text;document.body.appendChild(i);i.select();try{document.execCommand('copy')}catch(e){}i.remove();done();}
+}
+const wa=(msg,link)=>'https://wa.me/?text='+encodeURIComponent(msg+' '+link);
+
+/* grid */
+const grid=document.getElementById('grid');
+GAMES.forEach(g=>{
+  const link='https://is.gd/'+g.slug;
+  const el=document.createElement('section');el.className='game';
+  el.innerHTML=`<a class="play" style="--tint:${g.tint}" href="${link}" target="_blank" rel="noopener">
+      <svg viewBox="0 0 48 48" aria-hidden="true">${g.icon}</svg><b>${g.name}</b><span class="go">Play</span></a>
+    <p class="link">is.gd/${g.slug}</p>
+    <div class="row"><a class="btn wa" href="${wa('Play '+g.name+'!',link)}" target="_blank" rel="noopener">WhatsApp</a>
+    <button class="btn" type="button" data-copy="${link}">Copy link</button></div>${g.demo?'<button class="btn demo" type="button" data-demo="1">▶ See demo (1 min)</button>':''}`;
+  grid.appendChild(el);
+});
+const soon=document.createElement('section');soon.className='game soon';
+soon.innerHTML='<b>More games coming</b><span>New ones get a seat on the throne here.</span>';
+grid.appendChild(soon);
+
+const darkQ=matchMedia('(prefers-color-scheme: dark)');
+function tintFix(){const th=document.documentElement.dataset.theme;const dark=th==='dark'||(th!=='light'&&darkQ.matches);
+  document.querySelectorAll('.play').forEach(a=>a.style.background=dark?'color-mix(in srgb, '+a.style.getPropertyValue('--tint')+' 14%, transparent)':'');}
+tintFix();try{darkQ.addEventListener('change',tintFix);new MutationObserver(tintFix).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+
+const hubWa=document.getElementById('hubWa');
+hubWa.href=wa('Game Throne: all our games in one place 👑',HUB_LINK);
+hubWa.addEventListener('click',sfx.share);
+document.getElementById('hubCopy').onclick=()=>copy(HUB_LINK);
+const closeV=()=>{const v=document.getElementById('vid');try{v.pause()}catch(_){}document.getElementById('vmodal').hidden=true;};
+document.getElementById('vclose').onclick=closeV;document.getElementById('vmodal').addEventListener('click',e=>{if(e.target.id==='vmodal')closeV();});
+grid.addEventListener('click',e=>{
+  if(e.target.closest('[data-demo]')){sfx.play();const m=document.getElementById('vmodal'),v=document.getElementById('vid');m.hidden=false;try{v.currentTime=0;v.play().catch(()=>{})}catch(_){}return;}
+  const b=e.target.closest('[data-copy]');if(b){copy(b.dataset.copy);return;}
+  if(e.target.closest('.play'))sfx.play();else if(e.target.closest('.wa'))sfx.share();
+});
+})();
+</script>
+
+</body></html>
